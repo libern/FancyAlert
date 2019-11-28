@@ -115,6 +115,7 @@ class FancyAlertTwoActionCell: UITableViewCell {
             self?.rightButton.isEnabled = lastAction.isEnabled
         }
 
+        self.backgroundColor = FancyAlertConfig.alertCellColor
     }
 
     @objc private func buttonTouchDown(sender: UIButton) {
@@ -122,11 +123,11 @@ class FancyAlertTwoActionCell: UITableViewCell {
     }
 
     @objc private func buttonTouchOutside(sender: UIButton) {
-        sender.backgroundColor = UIColor.white
+        sender.backgroundColor = FancyAlertConfig.alertCellColor
     }
 
     @objc private func buttonClicked(sender: UIButton) {
-        sender.backgroundColor = UIColor.white
+        sender.backgroundColor = FancyAlertConfig.alertCellColor
 
         buttonDidClicked?()
         if sender == leftButton {

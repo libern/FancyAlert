@@ -28,6 +28,7 @@ extension FancyAlertConfig {
     public static var alertProgressTintColor: UIColor = #colorLiteral(red: 0.7647058824, green: 0.7647058824, blue: 0.7647058824, alpha: 1)  // c3c3c3
     public static var alertTrackTintColor: UIColor = #colorLiteral(red: 0.8901960784, green: 0.8901960784, blue: 0.8901960784, alpha: 1)  // e3e3e3
 
+    public static var alertCellColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)  // ffffff
     public static var alertCellSelectedColor: UIColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)  // ededed
 
     public static var textViewHeight: CGFloat = 115
