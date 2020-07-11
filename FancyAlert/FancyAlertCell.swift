@@ -49,6 +49,8 @@ class FancyAlertCell: UITableViewCell {
             self?.titleLabel.alpha = action.isEnabled ? 1 : 0.4
             self?.isUserInteractionEnabled = action.isEnabled
         }
+
+        self.backgroundColor = FancyAlertConfig.alertCellColor
     }
 
     private func makeUI() {
