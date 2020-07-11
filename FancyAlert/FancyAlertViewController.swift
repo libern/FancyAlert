@@ -134,14 +134,16 @@ open class FancyAlertViewController: UIViewController {
     }
 
     var safeAreaInsetsBottom: CGFloat = 0
+    var autoDismiss: Bool = true
 
-    public init(style: Style, title: String?, message: String? = nil, actions: [FancyAlertAction] = []) {
+    public init(style: Style, title: String?, message: String? = nil, actions: [FancyAlertAction] = [], autoDismiss: Bool = true) {
         self.type = style
         self.actions = actions
         self.message = message
+        self.autoDismiss = autoDismiss
         alertTransitionManager = FancyAlertTransitionManager(type: type)
         super.init(nibName: nil, bundle: nil)
-        
+
         self.title = title
         transitioningDelegate = alertTransitionManager
 
@@ -221,10 +223,12 @@ open class FancyAlertViewController: UIViewController {
             tableView = alertTableView
         }
         (tableView as! FancyAlertTableViewSource).markedColor = markedColor
-        (tableView as! FancyAlertTableViewSource).actionCompleted = { [weak self] in
-            self?.dismiss(animated: true, completion: { [weak self] in
-                self?.dismissCompleted?()
-            })
+        if autoDismiss {
+            (tableView as! FancyAlertTableViewSource).actionCompleted = { [weak self] in
+                self?.dismiss(animated: true, completion: { [weak self] in
+                    self?.dismissCompleted?()
+                })
+            }
         }
         tableView.backgroundColor = backgroundColor
         view.addSubview(tableView)
